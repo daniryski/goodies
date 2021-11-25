@@ -62,3 +62,12 @@ In the **Appearance** tab set the *Font* to *Fira Code Regular 10*, and in the *
 
 Install feh with `sudo apt install feh`.\
 Running `feh --bg-scale wallpaper.png` will set your background to *wallpaper.png*, and will save the command to `~/.fehbg`
+
+
+### Setting up lightdm-gtk-greeter
+
+*lightdm-gtk-greeter* is already installed, and used as your default login screen.\
+You can either customise it manually by editing `/etc/lightdm/lightdm-gtk-greeter.conf`,
+or run `sudo apt install lightdm-gtk-greeter-settings`, and then `lightdm-gtk-greeter-settings`.
+
+Set *Kali-Dark* as its theme, *Flat-Remix-Blue-Dark* as its icon theme, and *Cantarell 10* as its font, and you're good to go.
