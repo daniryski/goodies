@@ -87,3 +87,22 @@ You can set your *Xfce Terminal*'s *Background* from the **Appearance** tab in *
 ### Setting up zsh
 
 You can find my *.zshrc* [here](dotfiles/.zshrc).
+
+
+## Issues
+
+### Firefox tearing
+
+#### Description:
+Firefox tears the pages, when scrolling.
+
+#### Fix:
+Add the following to `/etc/X11/xorg.conf.d/20-intel.conf`
+
+```conf
+Section "Device"
+  Identifier "Intel Graphics"
+  Driver "intel"
+  Option "TearFree" "true"
+EndSection
+```
