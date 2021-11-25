@@ -30,3 +30,28 @@ gaps inner 20
 Open **Menu->Settings->Session and Startup**, and add the command `/usr/bin/i3` in the **Application Autostart** tab.
 In the **Current Session** tab change *xfwm4*'s, and *xfdesktop*'s *Restart Style* to *Never*.\
 Quitting *xfwm4*, and *xfdesktop*, and restarting your session, will complete your initial *i3-gaps-wm* setup.
+
+
+### Setting up Kali Dark Theme
+
+Download the Kali themes with `git clone https://gitlab.com/kalilinux/packages/kali-themes`.
+
+***Note***: keeping the repository will make it easier to manage the themes.
+
+Next, make the themes, icons, and *xfce4-terminal*'s colorschemes accessible by Xfce, by adding symbolic links to them.
+
+```
+sudo ln -s kali-themes/share/themes/Kali-Dark /usr/share/themes/
+sudo ln -s kali-themes/share/icons/Flat-Remix-Blue-Dark /usr/share/icons/
+sudo ln -s kali-themes/share/xfce4/terminal/colorschemes/Kali.theme /usr/share/xfce4/terminal/colorschemes/
+```
+
+Install the fonts *Fira Code*, and *Cantarell* with `sudo apt install fonts-firacode fonts-cantarell`.
+
+Open **Menu->Settings->Appearance**.\
+In the **Style** tab select *Kali-Dark*, in the icons tab select *Flat-Remix-Blue-Dark*, and in the **Fonts** tab set the *Default Font* to *Cantarell Regular 11*, and the *Default Monospace Font* to *Fira Code Medium 10*.
+
+Open **Xfce Terminal->Edit->Preferences**.\
+In the **Appearance** tab set the *Font* to *Fira Code Regular 10*, and in the *Colors* tab select *Kali* from *Load Presets...*.
+
+*Bonus*: enable *Firefox*'s dark theme from **Settings Menu->Preferences**, **Extensions & Themes** tab.
