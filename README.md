@@ -82,3 +82,8 @@ You can see [an example display-setup-script.sh](scripts/display-setup-script.sh
 
 Edit `/etc/lightdm/lightdm-gtk-greeter.conf`, and `~/.fehbg` to set the random background from `display-setup-script.sh` for the login screen, and display.\
 You can set your *Xfce Terminal*'s *Background* from the **Appearance** tab in **Edit->Preferences**.
+
+
+### Setting up zsh
+
+You can find my *.zshrc* [here](dotfiles/.zshrc).
