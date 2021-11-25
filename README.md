@@ -71,3 +71,14 @@ You can either customise it manually by editing `/etc/lightdm/lightdm-gtk-greete
 or run `sudo apt install lightdm-gtk-greeter-settings`, and then `lightdm-gtk-greeter-settings`.
 
 Set *Kali-Dark* as its theme, *Flat-Remix-Blue-Dark* as its icon theme, and *Cantarell 10* as its font, and you're good to go.
+
+
+### Setting up a random background for the login screen, display, and terminal
+
+Create a *display-setup-script.sh* in `/usr/local/bin`, `sudo vi /etc/lightdm/lightdm.conf`, and under the `[Seat:*]` section uncomment, and edit `display-setup-script` to `display-setup-script=dislpay-setup-script.sh`.\
+To randomise the background selection, you can use my [cp-random-background](scripts/cp-random-background) script/tool, after placing it in `/usr/local/bin`.\
+You can see [an example display-setup-script.sh](scripts/display-setup-script.sh), similar to the one I'm using.\
+***Note***: be careful, when modifying those scripts, because they will be ran as root!
+
+Edit `/etc/lightdm/lightdm-gtk-greeter.conf`, and `~/.fehbg` to set the random background from `display-setup-script.sh` for the login screen, and display.\
+You can set your *Xfce Terminal*'s *Background* from the **Appearance** tab in **Edit->Preferences**.

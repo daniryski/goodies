@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+
+if [ $# -ne 2 ]; then
+  echo "Usage: cp-random-background SOURCE DEST"
+  echo "Copy a random image matching SOURCE* to /usr/share/backgrounds/DEST,"
+  echo "while keeping the image's file extensions."
+
+  exit 1
+fi
+
+dest="/usr/share/backgrounds/$2"
+
+# Iterate over all files matching SOURCE*, sorted in a random order
+for file in $(find "$1"* -maxdepth 0 | sort -R); do
+  # Skip non-images
+  if [[ $(file --mime-type -b "$file") != image/* ]]; then
+    continue
+
+  else
+    file_ext="${file##*.}"
+
+    # If DEST's extension doesn't match SOURCE's one, append SOURCE's extension to DEST
+    if [[ ${dest##*.} != "$file_ext" ]]; then
+      dest="$dest.$file_ext"
+    fi
+
+    # If copying the file fails, show an appropriate error message
+    if ! cp "$file" "$dest"; then
+      echo "Couldn't copy $file to $dest."
+      exit 1
+    else
+      exit 0
+    fi
+  fi
+done
+
+# If no files were copied (`exit 0` on a successful copy),
+# show an appropriate error message
+echo -e "No \033[1mimage\033[0m files matching \"$1*\" have been found."
+exit 1
