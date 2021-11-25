@@ -15,7 +15,8 @@ There isn't an official `i3-gaps-wm` package in Debian's repositories yet, but y
 
 Then, open Xfce's session configuration with `sudo vi /etc/xdg/xfce4/xfconf/xfce-perchannel-xml-xfce4-session.xml`.\
 Replacing `<value type="string" value="xfwm4"/>` with `<value type="string" value="i3"/>` will setup *i3* as your window manager.\
-Replacing `<value type="string" value="xfdesktop"/>` with `<value type="string" value="/home/$(whoami)/.fehbg"/>`, will set your background with *feh*, instead of starting *xfdesktop*.\
+Replacing `<value type="string" value="xfdesktop"/>` with `<value type="string" value="/home/$(whoami)/.fehbg"/>`, will set your background with *feh*, instead of starting *xfdesktop* (*replace `/home/$(whoami)` with the actual directory!*).\
+See the [section about setting up feh](#setting-up-feh) below for more information.\
 I kept *xfce4-panel*, since I prefer it to *i3bar*.
 
 Run `i3-config-wizard`, to create an initial *.config/i3/config* file.\
@@ -55,3 +56,9 @@ Open **Xfce Terminal->Edit->Preferences**.\
 In the **Appearance** tab set the *Font* to *Fira Code Regular 10*, and in the *Colors* tab select *Kali* from *Load Presets...*.
 
 *Bonus*: enable *Firefox*'s dark theme from **Settings Menu->Preferences**, **Extensions & Themes** tab.
+
+
+### Setting up feh
+
+Install feh with `sudo apt install feh`.\
+Running `feh --bg-scale wallpaper.png` will set your background to *wallpaper.png*, and will save the command to `~/.fehbg`
